@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+// import User from "./models/User";
 
 // Configure the database connection
 export const sequelize = new Sequelize(

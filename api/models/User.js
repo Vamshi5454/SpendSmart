@@ -1,8 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize";
 import sequelize from "../database.js";
-
-// const { Sequelize, DataTypes } = ("sequelize");
-// const sequelize = new Sequelize("mysql://root:12345678@localhost:3306/Finance");
+// import User from "../models/";
 
 const User = sequelize.define(
   "User",
@@ -21,6 +19,7 @@ const User = sequelize.define(
       allowNull: false,
     },
   },
+
   {
     timestamps: true,
     createdAt: "created_at",
@@ -28,5 +27,4 @@ const User = sequelize.define(
   }
 );
 
-// module.exports = User;
 export default User;

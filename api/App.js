@@ -5,6 +5,7 @@ import FinData from "./models/FinData.js";
 import Expense from "./models/Expense.js";
 import users from "./routes/users.js";
 import findata from "./routes/findata.js";
+import exproute from "./routes/exproute.js";
 const app = express();
 const port = 3000;
 
@@ -60,3 +61,4 @@ app.listen(port, () => {
 
 app.use("/auth", users);
 app.use("/findata", findata);
+app.use("/expData", exproute);

@@ -5,17 +5,23 @@ import Header from "./components/Header/Header.js";
 import DashBoard from "./components/DashBoard/DashBoard.js";
 import Expenses from "./components/Expenses/Expenses.js";
 import ParentComponent from "./components/ParentComponent/ParentComponent.js";
+import Login from "./pages/Login/Login.js";
+import Register from "./pages/Register/Register.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Login from "./pages/Login/Login.js";
 
 function App() {
   return (
-    <div className="App">
-      {/* <h1>This the client side</h1> */}
-      {/* <Home name="vamshi" /> */}
-      <Header />
-      {/* <DashBoard /> */}
-      {/* <Expenses /> */}
-      <ParentComponent />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          {/* <Route path="/" element={<Header />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="Register" element={<Register />} />
+          <Route path="*" element={<Header />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

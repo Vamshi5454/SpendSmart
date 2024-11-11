@@ -12,7 +12,7 @@ function Header() {
         <h1>Spend Smart</h1>
         <p>Track and Control your Expense</p>
       </div>
-      <button>Log Out</button>
+      {/* <button>Log Out</button> */}
     </div>
   );
 }

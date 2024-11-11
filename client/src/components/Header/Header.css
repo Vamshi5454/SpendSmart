@@ -1,10 +1,10 @@
-.header {
+/* /* .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #bfcfe0; /* Optional: Adjust as needed */
-  border-bottom: 1px solid #ddd; /* Optional: Adds a divider line */
+  background-color: #bfcfe0; 
+  border-bottom: 1px solid #ddd; 
 }
 
 .header div {
@@ -36,4 +36,53 @@
 
 .header button:hover {
   background-color: #0056b3;
+} */
+
+/* Header.css */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Keeps the button on the right */
+  padding: 20px;
+  background-color: #bfcfe0; /* Maintains your chosen header background */
+  border-bottom: 1px solid #ddd; /* Keeps a subtle separator */
+}
+
+.header div {
+  flex-grow: 1; /* Ensures the div takes the necessary space */
+  text-align: center; /* Centers the header text */
+}
+
+.header h1,
+.header p {
+  margin: 0; /* Removes default margin for clean alignment */
+  padding: 0; /* Removes default padding */
+}
+
+.header h1 {
+  font-size: 24px; /* Adjust as needed */
+  color: #333; /* Dark grey for contrast */
+  font-weight: bold; /* Makes the header text bold */
+}
+
+.header p {
+  color: #666; /* Lighter grey for the subtitle */
+  font-size: 16px; /* Subtitle text size */
+  margin-top: 4px; /* Adds a little space between the title and subtitle */
+}
+
+.header button {
+  margin-left: auto; /* Pushes the button to the right */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff; /* Primary blue color for consistency */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.header button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }

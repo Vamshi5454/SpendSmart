@@ -1,0 +1,49 @@
+/* Login.css */
+.login-container {
+  position: relative; /* Ensures the position context for absolute children */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes at least the height of the viewport */
+  background-color: #f0f2f5;
+}
+
+.register {
+  position: absolute; /* Absolutely position relative to its nearest positioned ancestor */
+  top: 10px; /* Positioned right from the top of the login container */
+  right: 10px; /* Positioned right from the right of the login container */
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.register:hover {
+  background-color: #0056b3;
+}
+
+form {
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px; /* Control the max width to ensure form doesn’t stretch too wide */
+  box-sizing: border-box;
+}
+.lgn-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+/* Other existing styles */

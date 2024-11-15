@@ -14,7 +14,7 @@ const Expense = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    finDataId: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

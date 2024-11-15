@@ -5,10 +5,14 @@ import FinData from "../models/FinData.js";
 
 const router = express.Router();
 
-router.post("/addexpense", async (req, res) => {
+router.post("/addNew", async (req, res) => {
   try {
-    const { Income, Savings, userId } = req.body;
-    const findata = await FinData.create({ Income, Savings, userId });
+    const { income, sum, id } = req.body;
+    const findata = await FinData.create({
+      Income: income,
+      Savings: sum,
+      userId: id,
+    });
     res.status(200).json(findata);
   } catch (err) {
     res.status(400).json(err);

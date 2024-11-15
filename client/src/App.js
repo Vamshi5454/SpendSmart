@@ -21,6 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashBoard" element={<DashBoard />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/Expenses" element={<Expenses />} />
         </Routes>
       </div>
     </BrowserRouter>

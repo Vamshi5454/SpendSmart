@@ -12,7 +12,7 @@ router.post("/addExpense", async (req, res) => {
     const expenseData = Expense.create({
       description: expense,
       Amount: amount,
-      finDataId: id,
+      userId: id,
     });
 
     res.status(200).json(expenseData);

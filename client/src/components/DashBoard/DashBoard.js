@@ -32,29 +32,27 @@ function DashBoard({ id }) {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleIncome = async (e) => {
     e.preventDefault();
-    console.log("clicked submit");
-    // const allExpenses = {
-    //   expense,
-    //   amount,
-    // };
+    console.log("clicked calculate");
 
     try {
-      const res = await axios.post(`http://127.0.0.1:3001/findata/addexpense`, {
+      const res = await axios.post(`http://127.0.0.1:3001/findata/addNew`, {
         income,
-        // savings,
         sum,
+        id,
       });
     } catch (err) {
       console.log(err);
     }
 
-    // onAddExpense(allExpenses);
-
+    setIncome("");
     setAmount("");
     setExpense("");
   };
+
+  const handleSubmit = (e) => {};
+
   return (
     <div className="dashboard-container">
       <form onSubmit={handleSubmit} className="dashboard-form">
@@ -65,7 +63,9 @@ function DashBoard({ id }) {
           onChange={(e) => setIncome(e.target.value)}
           placeholder="Enter Your Income"
         />
-        <button className="button">Add Income</button>
+        <button className="button" onClick={handleIncome}>
+          Add Income
+        </button>
         <label for="expense">Expense</label>
         <input
           type="text"

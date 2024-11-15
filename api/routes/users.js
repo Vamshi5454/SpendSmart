@@ -1,6 +1,8 @@
 import express from "express";
 
 import User from "../models/User.js";
+import FinData from "../models/FinData.js";
+import Expense from "../models/Expense.js";
 
 const router = express.Router();
 
@@ -18,7 +20,10 @@ router.post("/login", async (req, res) => {
   try {
     console.log(req.body);
 
-    const user = await User.findOne({ where: { username: req.body.username } });
+    const user = await User.findOne({
+      where: { username: req.body.username },
+      include: [{ model: FinData }, { model: Expense }],
+    });
     // const temp = users.filter((user) => user.username === req.body.username);
 
     console.log(user);

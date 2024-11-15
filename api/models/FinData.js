@@ -10,22 +10,7 @@ const FinData = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    // Expense: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // ExpenseAmount: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
-    // Investment: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
-    // InvestmentAmount: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    // },
+
     Savings: {
       type: DataTypes.INTEGER,
       allowNull: false,

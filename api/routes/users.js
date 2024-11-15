@@ -14,10 +14,16 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
-    const users = await User.findAll();
-    res.json(users);
+    console.log(req.body);
+
+    const user = await User.findOne({ where: { username: req.body.username } });
+    // const temp = users.filter((user) => user.username === req.body.username);
+
+    console.log(user);
+
+    return res.json(user);
   } catch (err) {
     res.status(500).json(err);
   }

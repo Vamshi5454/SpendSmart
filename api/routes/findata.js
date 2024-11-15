@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/addexpense", async (req, res) => {
   try {
     const { Income, Savings, userId } = req.body;
-    const findata = FinData.create({ Income, Savings, userId });
+    const findata = await FinData.create({ Income, Savings, userId });
     res.status(200).json(findata);
   } catch (err) {
     res.status(400).json(err);
@@ -17,9 +17,9 @@ router.post("/addexpense", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const allExpenses = await FinData.findAll();
-    console.log(allExpenses);
-    res.json(allExpenses);
+    const alldata = await FinData.findAll();
+    console.log(alldata);
+    res.json(alldata);
   } catch (err) {
     res.status(400).json(err);
   }

@@ -2,20 +2,55 @@ import React, { useState } from "react";
 import "./DashBoard.css";
 
 import Expenses from "../Expenses/Expenses";
+import axios from "axios";
 
-function DashBoard({ onAddExpense }) {
+function DashBoard({ id }) {
   const [income, setIncome] = useState("");
   const [expense, setExpense] = useState("");
   const [amount, setAmount] = useState(0);
+  const [sum, setSum] = useState(0);
 
-  const handleSubmit = (e) => {
+  const addExpense = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await axios.post(`http://127.0.0.1:3001/expData/addExpense`, {
+        expense,
+        amount,
+        id,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    try {
+      const temp = await axios.get(`http://127.0.0.1:3001/expData/sum`);
+      console.log(temp);
+      setSum(temp);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("clicked submit");
-    const allExpenses = {
-      expense,
-      amount,
-    };
-    onAddExpense(allExpenses);
+    // const allExpenses = {
+    //   expense,
+    //   amount,
+    // };
+
+    try {
+      const res = await axios.post(`http://127.0.0.1:3001/findata/addexpense`, {
+        income,
+        // savings,
+        sum,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+
+    // onAddExpense(allExpenses);
 
     setAmount("");
     setExpense("");
@@ -47,7 +82,9 @@ function DashBoard({ onAddExpense }) {
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Enter the amount spent"
         />
-        <button className="button">Add Expense</button>
+        <button className="button" onClick={addExpense}>
+          Add Expense
+        </button>
         <button className="submit" type="submit">
           Calculate
         </button>

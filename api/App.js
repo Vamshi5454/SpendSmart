@@ -6,9 +6,10 @@ import Expense from "./models/Expense.js";
 import users from "./routes/users.js";
 import findata from "./routes/findata.js";
 import exproute from "./routes/exproute.js";
+import cors from "cors";
 const app = express();
-const port = 3000;
-
+const port = 3001;
+app.use(cors());
 const initialise = async () => {
   try {
     // Authenticate and sync database

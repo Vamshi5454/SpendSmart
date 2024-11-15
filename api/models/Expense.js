@@ -1,6 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database.js";
 import FinData from "./FinData.js";
+import User from "./User.js";
 
 const Expense = sequelize.define(
   "Expense",
@@ -17,7 +18,7 @@ const Expense = sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: FinData,
+        model: User,
         key: "id",
       },
     },
@@ -29,7 +30,7 @@ const Expense = sequelize.define(
   }
 );
 
-FinData.hasMany(Expense, { foreignKey: "finDataId" });
-Expense.belongsTo(FinData, { foreignKey: "finDataId" });
+User.hasMany(Expense, { foreignKey: "userId" });
+Expense.belongsTo(User, { foreignKey: "userId" });
 
 export default Expense;

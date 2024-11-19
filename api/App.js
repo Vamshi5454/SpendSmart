@@ -7,9 +7,11 @@ import users from "./routes/users.js";
 import findata from "./routes/findata.js";
 import exproute from "./routes/exproute.js";
 import cors from "cors";
+
 const app = express();
 const port = 3001;
 app.use(cors());
+
 const initialise = async () => {
   try {
     // Authenticate and sync database
@@ -51,6 +53,7 @@ const initialise = async () => {
 };
 
 initialise();
+
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello world");

@@ -1,10 +1,11 @@
 import express from "express";
 import Expense from "../models/Expense.js";
-import { json } from "sequelize";
+import { json, where } from "sequelize";
+import verifyToken from "./validToken.js";
 
 const router = express.Router();
 
-router.post("/addExpense", async (req, res) => {
+router.post("/addExpense", verifyToken, async (req, res) => {
   try {
     // const { description, Amount, finDataId } = req.body;
     const { expense, amount, id } = req.body;
@@ -30,9 +31,17 @@ router.get("/allData", async (req, res) => {
   }
 });
 
-router.get("/sum", async (req, res) => {
+router.get("/sum", verifyToken, async (req, res) => {
+  console.log(req.body.id);
+
+  const userId = req.body.id;
+
   try {
-    const allExpenses = await Expense.findAll();
+    const allExpenses = await Expense.findAll({
+      where: {
+        userId: userId,
+      },
+    });
     // res.json(allExpenses);
     let sum = 0;
 

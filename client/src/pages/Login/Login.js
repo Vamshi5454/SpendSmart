@@ -22,7 +22,13 @@ function Login() {
       });
 
       console.log("cliked login");
-      console.log(res.data);
+
+      localStorage.setItem("token", res.data);
+
+      axios.defaults.headers.common["Authorization"] = `Bearer ${res.data}`;
+
+      const temp = await axios.get(`http://127.0.0.1:3001/auth/find`);
+
       if (res.data) {
         navigate("/home", { state: { userData: res.data } });
       } else {

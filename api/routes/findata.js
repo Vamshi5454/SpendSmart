@@ -2,10 +2,11 @@ import express from "express";
 
 import User from "../models/User.js";
 import FinData from "../models/FinData.js";
+import verifyToken from "./validToken.js";
 
 const router = express.Router();
 
-router.post("/addNew", async (req, res) => {
+router.post("/addNew", verifyToken, async (req, res) => {
   try {
     const { income, sum, id } = req.body;
     const findata = await FinData.create({
